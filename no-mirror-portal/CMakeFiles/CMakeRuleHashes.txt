@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+9ef1f62f45117967bc28178cf1dcacc8 Cacao/CMakeFiles/Cackit
+438c9511d9ba054c4a6fb9e6f2f73b7c Cacao/Include/Defs.hpp
+e42dd10cebe36595e9ec2a482f16db65 Cacao/runeverytime
+cc4689a20cf7fba4f4c0e58e4ec60547 Cacao/runeverytime1
