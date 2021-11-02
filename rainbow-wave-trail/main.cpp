@@ -4,33 +4,36 @@
 
 bool first = true;
 
+cocos2d::ccColor3B shiftHue(cocos2d::ccColor3B &color, int shift, int max, int min) {
+	if (color.r == max && color.g != max && color.b == min) {
+		color.g += shift;
+	} else if (color.r != min && color.g == max && color.b == min) {
+		color.r -= shift;
+	} else if (color.r == min && color.g == max && color.b != max) {
+		color.b += shift;
+	} else if (color.r == min && color.g != min && color.b == max) {
+		color.g -= shift;
+	} else if (color.r != max && color.g == min && color.b == max) {
+		color.r += shift;
+	} else if (color.r == max && color.g == min && color.b != min) {
+		color.b -= shift;
+	}
+	return color;
+}
+
 class $redirect(PlayerObject) {
 public:
 	void update(float a) {
-		if ($PlayerObject::_isDart()) {
+		if (this->_isDart()) {
 			HardStreak *streak = this->_waveStreak();
 			cocos2d::ccColor3B color = streak->getColor();
 			if (first) {
 				first = false;
-				color.r = 255;
+				color.r = 222;
 				color.g = 0;
 				color.b = 0;
 			}
-			// lmao
-			if (color.r == 255 && color.g != 255 && color.b == 0) {
-				color.g += 1;
-			} else if (color.r != 0 && color.g == 255 && color.b == 0) {
-				color.r -= 1;
-			} else if (color.r == 0 && color.g == 255 && color.b != 255) {
-				color.b += 1;
-			} else if (color.r == 0 && color.g != 0 && color.b == 255) {
-				color.g -= 1;
-			} else if (color.r != 255 && color.g == 0 && color.b == 255) {
-				color.r += 1;
-			} else if (color.r == 255 && color.g == 0 && color.b != 0) {
-				color.b -= 1;
-			}
-			streak->setColor(color);
+			streak->setColor(shiftHue(color, 1, 222, 0));
 		}
 
 		$PlayerObject::update(a);
