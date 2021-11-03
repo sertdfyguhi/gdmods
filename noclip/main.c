@@ -12,6 +12,7 @@ uintptr_t getBase() {
 void inject() {
   uintptr_t base = getBase();
   char bytes[2] = {0x90, 0x90};
+  char byte[1] = {0xC3};
 
   // turn off anticheat
   mach_vm_protect(mach_task_self(), base+0x72351, 2, FALSE, 7 | VM_PROT_COPY);
@@ -19,5 +20,5 @@ void inject() {
 
   // make PlayLayer::DestroyPlayer do nothing
   mach_vm_protect(mach_task_self(), base+0x7ab80, 1, FALSE, 7 | VM_PROT_COPY);
-  mach_vm_write(mach_task_self(), base+0x7ab80, '\xC3', 1);
+  mach_vm_write(mach_task_self(), base+0x7ab80, &byte, 1);
 }
