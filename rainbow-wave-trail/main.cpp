@@ -24,6 +24,8 @@ cocos2d::ccColor3B shiftHue(cocos2d::ccColor3B &color, int shift, int max, int m
 class $redirect(PlayerObject) {
 public:
 	void update(float a) {
+		$PlayerObject::update(a);
+
 		if (this->_isDart()) {
 			HardStreak *streak = this->_waveStreak();
 			cocos2d::ccColor3B color = streak->getColor();
@@ -35,8 +37,6 @@ public:
 			}
 			streak->setColor(shiftHue(color, 1, 222, 0));
 		}
-
-		$PlayerObject::update(a);
 	}
 
 	void toggleDartMode(bool a) {
