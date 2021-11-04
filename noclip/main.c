@@ -11,8 +11,8 @@ uintptr_t getBase() {
 
 void inject() {
   uintptr_t base = getBase();
-  char bytes[2] = {0x90, 0x90};
-  char byte[1] = {0xC3};
+  char bytes[2] = {0x90, 0x90}; // nop nop
+  char byte[1] = {0xC3}; // ret
 
   // turn off anticheat, stolen from camila which stole it from absolute
   mach_vm_protect(mach_task_self(), base+0x72351, 2, FALSE, 7 | VM_PROT_COPY);

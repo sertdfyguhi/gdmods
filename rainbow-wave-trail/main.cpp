@@ -31,11 +31,11 @@ public:
 			cocos2d::ccColor3B color = streak->getColor();
 			if (first) {
 				first = false;
-				color.r = 222;
+				color.r = 255;
 				color.g = 0;
 				color.b = 0;
 			}
-			streak->setColor(shiftHue(color, 1, 222, 0));
+			streak->setColor(shiftHue(color, 1, 255, 0));
 		}
 	}
 

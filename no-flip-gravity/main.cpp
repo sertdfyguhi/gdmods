@@ -4,7 +4,7 @@
 class $redirect(PlayerObject) {
 public:
     void flipGravity(bool b, bool c) {}
-		void hardFlipGravity() {}
+	void hardFlipGravity() {}
 } hook1;
 
 class $redirect(PlayLayer) {
