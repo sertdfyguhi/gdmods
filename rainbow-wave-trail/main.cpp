@@ -28,6 +28,7 @@ public:
 
 		if (this->_isDart()) {
 			HardStreak *streak = this->_waveStreak();
+			streak->setOpacity(255);
 			cocos2d::ccColor3B color = streak->getColor();
 			if (first) {
 				first = false;
