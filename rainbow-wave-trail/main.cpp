@@ -4,6 +4,7 @@
 
 bool first = true;
 
+// ignore this horrible, horrible rainbow implementation
 cocos2d::ccColor3B shiftHue(cocos2d::ccColor3B &color, int shift, int max, int min) {
 	if (color.r == max && color.g != max && color.b == min) {
 		color.g += shift;
